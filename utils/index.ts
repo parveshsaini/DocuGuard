@@ -54,12 +54,10 @@ export const withAPIAuthentication = (apiHandler) => {
       tokenDetails: tokenDetails?.result,
     };
 
-    // We are good to continue
     return await apiHandler(req, res);
   };
 };
 
-// Echo this back http://malware.wicar.org/data/eicar.com to me
 export const extractURLs = (str) => {
   const regexp = /(http|https|ftp):\/\/(\S*)/gi;
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useAuth } from "@pangeacyber/react-auth";
-
+import { v4 as uuidV4 } from 'uuid';
 // import styles from "./page.module.css";
 import Link from "next/link";
 
@@ -20,6 +20,7 @@ export default function Home() {
         </div>
     
         {authenticated && (
+          <>
           <p>
             Please navigate to the <Link href={"/chat"}>
             <button className='bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded'>
@@ -28,6 +29,15 @@ export default function Home() {
             </button>
               </Link>
           </p>
+          <p>
+            Please navigate to the <Link href={`/document/${uuidV4()}`}>
+            <button className='bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded'>
+              Document
+
+            </button>
+              </Link>
+          </p>
+          </>
         )}
         {!authenticated && (
           <button className='bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded' onClick={() => login()}>
